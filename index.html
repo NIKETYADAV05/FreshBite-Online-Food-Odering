@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FreshBite — Premium food delivery from the best restaurants. Order pizza, burgers, sushi, biryani and more. Fast delivery, great deals.">
+  <meta property="og:title" content="FreshBite — Food Delivery">
+  <meta property="og:description" content="Order from the best restaurants near you. Fast delivery, exclusive deals.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80">
+  <meta property="og:type" content="website">
+  <title>FreshBite — Premium Food Delivery</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- ══ PAGE LOADER ══ -->
+<div id="page-loader" class="active">
+  <div class="loader-inner">
+    <div class="loader-logo"><span class="loader-brand">Fresh<span>Bite</span></span></div>
+    <div class="loader-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo" aria-label="FreshBite Home">
+      <span class="logo-text">Fresh<span>Bite</span></span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="restaurants.html">Restaurants</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="dark-mode-btn btn-icon" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <a href="cart.html" class="btn-icon cart-icon-wrap" aria-label="Shopping cart">
+        <i class="bi bi-bag-fill" style="font-size:1.3rem;color:var(--text-primary)"></i>
+        <span class="cart-badge" aria-live="polite">0</span>
+      </a>
+      <a href="login.html" class="btn-secondary btn-sm nav-guest">Sign In</a>
+      <div class="nav-auth" style="display:none;align-items:center;gap:8px;">
+        <a href="profile.html" class="btn-icon" aria-label="Profile"><i class="bi bi-person-circle" style="font-size:1.4rem;color:var(--text-primary)"></i></a>
+        <span class="nav-user-name" style="font-size:0.88rem;font-weight:600;color:var(--text-primary)"></span>
+      </div>
+      <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html"><i class="bi bi-house"></i> Home</a>
+  <a href="restaurants.html"><i class="bi bi-shop"></i> Restaurants</a>
+  <a href="cart.html"><i class="bi bi-bag"></i> Cart</a>
+  <a href="profile.html"><i class="bi bi-person"></i> Profile</a>
+  <a href="about.html"><i class="bi bi-info-circle"></i> About</a>
+  <a href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
+  <a href="login.html" class="nav-guest"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+  <a href="register.html" class="nav-guest"><i class="bi bi-person-plus"></i> Register</a>
+</div>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <!-- ── HERO ── -->
+  <section class="hero-section" aria-label="Hero banner">
+    <div style="width:100%;position:relative;">
+      <div id="hero-slider"></div>
+      <div class="hero-controls">
+        <button class="hero-arrow" id="hero-prev" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
+        <div id="hero-dots" role="tablist" aria-label="Slide navigation"></div>
+        <button class="hero-arrow" id="hero-next" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HERO SEARCH BAR ── -->
+  <div style="background:var(--body-bg);padding:32px 20px 0;">
+    <div style="max-width:640px;margin:0 auto;">
+      <form id="hero-search-form" class="hero-search-box" role="search" style="border-radius:var(--radius-full);box-shadow:var(--shadow-lg);overflow:hidden;display:flex;background:#fff;border:1.5px solid var(--border);">
+        <input type="search" id="hero-search-input" placeholder="🔍  Search for food, restaurants, cuisines..." aria-label="Search food or restaurant" autocomplete="off" style="flex:1;border:none;background:transparent;padding:16px 20px;font-size:1rem;outline:none;color:var(--text-primary);">
+        <button type="submit" style="background:var(--gradient-primary);color:#fff;border:none;padding:0 28px;font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:8px;cursor:pointer;white-space:nowrap;" aria-label="Search">
+          <i class="bi bi-search"></i> Search
+        </button>
+      </form>
+      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+        <span style="font-size:0.78rem;color:var(--text-muted);align-self:center;">Popular:</span>
+        <a href="restaurants.html?cuisine=Pizza" style="font-size:0.78rem;background:var(--card-bg);border:1px solid var(--border);padding:4px 12px;border-radius:var(--radius-full);color:var(--text-secondary);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)';">🍕 Pizza</a>
+        <a href="restaurants.html?cuisine=Burgers" style="font-size:0.78rem;background:var(--card-bg);border:1px solid var(--border);padding:4px 12px;border-radius:var(--radius-full);color:var(--text-secondary);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)';">🍔 Burgers</a>
+        <a href="restaurants.html?cuisine=Indian" style="font-size:0.78rem;background:var(--card-bg);border:1px solid var(--border);padding:4px 12px;border-radius:var(--radius-full);color:var(--text-secondary);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)';">🍛 Biryani</a>
+        <a href="restaurants.html?cuisine=Sushi" style="font-size:0.78rem;background:var(--card-bg);border:1px solid var(--border);padding:4px 12px;border-radius:var(--radius-full);color:var(--text-secondary);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)';">🍣 Sushi</a>
+        <a href="restaurants.html" style="font-size:0.78rem;background:var(--card-bg);border:1px solid var(--border);padding:4px 12px;border-radius:var(--radius-full);color:var(--text-secondary);transition:all 0.2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--primary)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-secondary)';">🎂 Desserts</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CATEGORIES ── -->
+  <section class="section" style="padding-top:40px;" aria-labelledby="categories-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="categories-heading">What Are You Craving?</h2>
+          <p class="section-subtitle">Explore hundreds of cuisines across the city</p>
+        </div>
+        <a href="restaurants.html" class="view-all">View All <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="category-slider-wrap">
+        <div class="category-slider" id="category-slider" role="list" aria-label="Food categories"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FLASH SALE ── -->
+  <section class="flash-sale-section" aria-labelledby="flash-sale-heading">
+    <div class="container">
+      <div class="flash-sale-header">
+        <span class="flash-sale-badge"><i class="bi bi-lightning-fill"></i> Flash Sale</span>
+        <div>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.82rem;margin-bottom:4px;">Ends in</p>
+          <div id="flash-sale-timer" class="flash-sale-timer" aria-live="polite" aria-label="Flash sale countdown"></div>
+        </div>
+      </div>
+      <div class="flash-sale-grid" id="flash-sale-grid">
+        <!-- Populated dynamically with best-sellers -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURED RESTAURANTS ── -->
+  <section class="section" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="featured-heading">Featured Restaurants</h2>
+          <p class="section-subtitle">Top-rated restaurants loved by thousands</p>
+        </div>
+        <a href="restaurants.html" class="view-all">See All <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="grid-4" id="featured-restaurants" role="list" aria-label="Featured restaurants"></div>
+    </div>
+  </section>
+
+  <!-- ── POPULAR FOODS ── -->
+  <section class="section" style="background:var(--light-gray);" aria-labelledby="popular-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="popular-heading">🔥 Popular Right Now</h2>
+          <p class="section-subtitle">Trending dishes ordered by thousands today</p>
+        </div>
+        <a href="restaurants.html" class="view-all">Explore <i class="bi bi-arrow-right"></i></a>
+      </div>
+<div class="grid-4" id="popular-foods" role="list" aria-label="Popular foods"></div>
+    </div>
+  </section>
+
+  <!-- ── RECENTLY VIEWED ── -->
+  <section class="section" aria-labelledby="recently-viewed-heading" style="display:none;">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="recently-viewed-heading">🕒 Recently Viewed</h2>
+          <p class="section-subtitle">Jump back into dishes you've been eyeing</p>
+        </div>
+      </div>
+      <div class="grid-4" id="recently-viewed" role="list" aria-label="Recently viewed foods"></div>
+    </div>
+  </section>
+
+  <!-- ── FAVOURITE RESTAURANTS ── -->
+<section class="section" style="background:var(--light-gray);display:none;" aria-labelledby="fav-restaurants-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="fav-restaurants-heading">❤️ Your Favourite Restaurants</h2>
+          <p class="section-subtitle">Order again from the places you love</p>
+        </div>
+        <a href="restaurants.html" class="view-all">See All <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="grid-4" id="fav-restaurants" role="list" aria-label="Favourite restaurants"></div>
+    </div>
+  </section>
+
+  <!-- ── TODAY'S SPECIALS ── -->
+  <section class="section" aria-labelledby="specials-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="specials-heading">👨‍🍳 Today's Chef Specials</h2>
+          <p class="section-subtitle">Curated by our top chefs, available for today only</p>
+        </div>
+      </div>
+      <div class="grid-4" id="today-specials" role="list" aria-label="Today's specials"></div>
+    </div>
+  </section>
+
+  <!-- ── OFFERS ── -->
+  <section class="section" style="background:var(--light-gray);" aria-labelledby="offers-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="offers-heading">🎁 Exclusive Offers</h2>
+          <p class="section-subtitle">Save more on every order with these deals</p>
+        </div>
+      </div>
+      <div class="grid-3" id="offers-container" role="list" aria-label="Offers"></div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section class="section" style="background:var(--gradient-dark);" aria-labelledby="stats-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+<h2 class="section-title" id="stats-heading" style="color:#fff;">Trusted by Our Community</h2>
+        <p style="color:rgba(255,255,255,0.6);">Join our growing community of food lovers</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🍽️</div>
+          <div class="stat-number counter-animate" data-target="8">0</div>
+          <div class="stat-label">Featured Restaurants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🍕</div>
+<div class="stat-number counter-animate" data-target="23">0</div>
+          <div class="stat-label">Signature Dishes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">😊</div>
+          <div class="stat-number counter-animate" data-target="10000">0</div>
+          <div class="stat-label">Orders Delivered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-number counter-animate" data-target="25">0</div>
+          <div class="stat-label">Min Avg Delivery</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="section testimonials-section" aria-labelledby="reviews-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="reviews-heading">What Our Customers Say</h2>
+          <p class="section-subtitle">Real reviews from real food lovers</p>
+        </div>
+      </div>
+      <div class="testimonials-grid" id="testimonials-slider" role="list" aria-label="Customer testimonials"></div>
+    </div>
+  </section>
+
+  <!-- ── APP DOWNLOAD ── -->
+  <section class="app-download-section" aria-labelledby="app-heading">
+    <div class="container">
+      <div class="app-download-inner">
+        <div class="app-download-text">
+          <h2 id="app-heading" style="color:#fff;">Get the FreshBite App</h2>
+          <p>Order faster, track in real-time, exclusive app-only deals. Download now and get ₹100 off your first order!</p>
+          <div class="app-store-btns">
+            <a href="#" class="app-store-btn">
+              <span class="store-icon">🍎</span>
+              <div><small>Download on the</small><strong>App Store</strong></div>
+            </a>
+            <a href="#" class="app-store-btn">
+              <span class="store-icon">▶️</span>
+              <div><small>Get it on</small><strong>Google Play</strong></div>
+            </a>
+          </div>
+        </div>
+        <div class="app-mockup">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80" alt="FreshBite App Screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NEWSLETTER ── -->
+  <section class="newsletter-section" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <h2 id="newsletter-heading">Stay in the Loop</h2>
+          <p>Subscribe for exclusive deals, new restaurant alerts, and food inspiration.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault();UI.toast('Subscribed! 🎉 Check your email for a surprise offer.','success',4000);this.reset();">
+          <input type="email" placeholder="Your email address" required aria-label="Email for newsletter">
+          <button type="submit" class="btn-primary">Subscribe <i class="bi bi-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">Fresh<span>Bite</span></div>
+        <p>Premium food delivery from the city's best restaurants. Fresh ingredients, fast delivery, great prices.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="restaurants.html">Restaurants</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <ul>
+          <li><a href="login.html">Sign In</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="profile.html">My Orders</a></li>
+          <li><a href="profile.html?tab=wishlist">Wishlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="contact.html#faq">FAQ</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 FreshBite. All rights reserved.</span>
+      <span>Made with ❤️ for food lovers</span>
+      <div style="display:flex;gap:16px;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html#cookies">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ BACK TO TOP ══ -->
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<!-- ══ CONFLICT MODAL ══ -->
+<div class="modal" id="conflict-modal" role="dialog" aria-modal="true" aria-labelledby="conflict-title">
+  <div class="modal-content">
+    <button class="modal-close" onclick="UI.closeModal('conflict-modal')" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+    <div style="text-align:center;padding:8px;">
+      <div style="font-size:3rem;margin-bottom:16px;">🛒</div>
+      <h3 id="conflict-title">Items from another restaurant</h3>
+      <p style="margin:12px 0 8px;">Your cart has items from <strong id="conflict-restaurant-name"></strong>.</p>
+      <p style="font-size:0.88rem;color:var(--text-muted);">Adding <strong id="conflict-new-item"></strong> will clear your current cart.</p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button class="btn-secondary" onclick="UI.closeModal('conflict-modal')">Keep Current Cart</button>
+        <button class="btn-primary" id="conflict-clear-btn">Start New Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCRIPTS ══ -->
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/restaurant.js"></script>
+<script src="js/products.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Populate flash sale grid with best-sellers
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('flash-sale-grid');
+    if (grid) {
+      const items = FOODS.filter(f => f.isBestSeller).slice(0, 4);
+      grid.innerHTML = items.map(f => RestaurantModule.renderFoodCard(f)).join('');
+      Cart.initAddToCartButtons();
+      UI.initScrollAnimations();
+    }
+  });
+</script>
+</body>
+</html>

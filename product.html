@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View food details, nutrition facts, ingredients and add to cart on FreshBite.">
+  <title>Product — FreshBite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div id="page-loader" class="active">
+  <div class="loader-inner"><div class="loader-logo"><span class="loader-brand">Fresh<span>Bite</span></span></div><div class="loader-dots"><span></span><span></span><span></span></div></div>
+</div>
+<nav id="navbar" role="navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo"><span class="logo-text">Fresh<span>Bite</span></span></a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a><a href="restaurants.html">Restaurants</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="dark-mode-btn btn-icon" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <a href="cart.html" class="btn-icon cart-icon-wrap" aria-label="Cart">
+        <i class="bi bi-bag-fill" style="font-size:1.3rem;color:var(--text-primary)"></i>
+        <span class="cart-badge">0</span>
+      </a>
+      <a href="login.html" class="btn-secondary btn-sm nav-guest">Sign In</a>
+      <div class="nav-auth" style="display:none;align-items:center;gap:8px;">
+        <a href="profile.html" class="btn-icon"><i class="bi bi-person-circle" style="font-size:1.4rem;color:var(--text-primary)"></i></a>
+        <span class="nav-user-name" style="font-size:0.88rem;font-weight:600;color:var(--text-primary)"></span>
+      </div>
+      <button id="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html"><i class="bi bi-house"></i> Home</a>
+  <a href="restaurants.html"><i class="bi bi-shop"></i> Restaurants</a>
+  <a href="cart.html"><i class="bi bi-bag"></i> Cart</a>
+  <a href="profile.html"><i class="bi bi-person"></i> Profile</a>
+  <a href="login.html" class="nav-guest"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+</div>
+
+<main style="padding-top:calc(var(--navbar-h) + 20px);">
+  <!-- Breadcrumb -->
+  <div class="container" style="margin-bottom:20px;">
+    <nav aria-label="Breadcrumb" style="font-size:0.82rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;">
+      <a href="index.html" style="color:var(--text-muted);">Home</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="restaurants.html" style="color:var(--text-muted);">Restaurants</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="#" id="product-breadcrumb-restaurant" style="color:var(--text-muted);"></a>
+      <i class="bi bi-chevron-right"></i>
+      <span id="product-name-crumb" style="color:var(--text-primary);font-weight:500;"></span>
+    </nav>
+  </div>
+
+  <!-- Product Detail -->
+  <section class="container" style="margin-bottom:60px;">
+    <div class="product-detail-grid">
+      <!-- Gallery -->
+      <div class="product-gallery">
+        <div style="position:relative;">
+          <img id="product-main-img" src="" alt="Food" class="product-main-img" loading="eager">
+          <span id="product-discount" class="product-discount" style="position:absolute;top:16px;left:16px;display:none;"></span>
+        </div>
+        <div id="product-gallery-thumbs" class="product-gallery-thumbs"></div>
+      </div>
+      <!-- Info -->
+      <div class="product-info">
+        <div id="product-badges" class="product-badges"></div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <div id="product-veg-badge"></div>
+          <div id="product-spice"></div>
+        </div>
+        <h1 id="product-name" style="font-size:clamp(1.4rem,3vw,2rem);margin-bottom:0;"></h1>
+        <div id="product-rating"></div>
+        <p id="product-description" style="color:var(--text-secondary);font-size:0.95rem;line-height:1.7;"></p>
+
+        <div class="product-price-row">
+          <span class="product-price" id="product-price"></span>
+          <span id="product-original-price"></span>
+        </div>
+
+        <!-- Nutrition -->
+        <div>
+          <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:0;">Nutrition Facts <small style="font-size:0.72rem;color:var(--text-muted);font-weight:400;">per serving</small></h3>
+          <div id="nutrition-container" class="nutrition-container"></div>
+        </div>
+
+        <!-- Ingredients -->
+        <div>
+          <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:8px;">Ingredients</h3>
+          <div id="product-ingredients" class="ingredients-wrap"></div>
+        </div>
+
+        <!-- Customizations -->
+        <div id="customizations-container"></div>
+
+        <!-- Quantity + Add to Cart -->
+        <div style="background:var(--light-gray);border-radius:var(--radius-lg);padding:20px;border:1px solid var(--border);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <span style="font-weight:600;font-size:0.9rem;">Quantity</span>
+            <div class="qty-selector">
+              <button id="qty-dec" aria-label="Decrease quantity"><i class="bi bi-dash"></i></button>
+              <span id="qty-display">1</span>
+              <button id="qty-inc" aria-label="Increase quantity"><i class="bi bi-plus"></i></button>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button id="add-to-cart-main" class="btn-add-to-cart-main" style="flex:1;" aria-label="Add to cart">
+              <span class="btn-text">Add to Cart</span>
+              <span class="btn-total-price"></span>
+            </button>
+            <button id="product-wishlist-btn" class="btn-secondary" style="gap:6px;padding:0 18px;" aria-label="Add to wishlist">
+              <i class="bi bi-heart"></i> Wishlist
+            </button>
+          </div>
+        </div>
+
+        <!-- Restaurant link -->
+        <div style="background:var(--secondary);border-radius:var(--radius-md);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <i class="bi bi-shop" style="color:var(--primary);font-size:1.2rem;"></i>
+            <div>
+              <span style="font-size:0.75rem;color:var(--text-muted);display:block;">From</span>
+              <a id="product-restaurant-link" href="#" style="font-weight:700;color:var(--primary);font-size:0.9rem;"></a>
+            </div>
+          </div>
+          <a id="product-restaurant-menu-link" href="#" class="btn-outline btn-sm">View Menu <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Items -->
+  <section class="section" style="background:var(--light-gray);padding-top:40px;" aria-labelledby="related-heading">
+    <div class="container">
+      <h2 class="section-title" id="related-heading" style="margin-bottom:24px;">You Might Also Like</h2>
+      <div class="grid-4" id="related-items"></div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section" style="padding-top:40px;" aria-labelledby="product-reviews-heading">
+    <div class="container">
+      <h2 class="section-title" id="product-reviews-heading" style="margin-bottom:24px;">Customer Reviews</h2>
+
+      <!-- Write a review form (B8) -->
+      <div class="write-review-card" id="write-review" style="margin-bottom:28px;">
+        <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:6px;">Rate this dish</h3>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:14px;">Share your experience to help other food lovers</p>
+        <div class="rating-input" id="review-rating-input" role="radiogroup" aria-label="Rating">
+          <button type="button" data-rating="1" aria-label="1 star"><i class="bi bi-star"></i></button>
+          <button type="button" data-rating="2" aria-label="2 stars"><i class="bi bi-star"></i></button>
+          <button type="button" data-rating="3" aria-label="3 stars"><i class="bi bi-star"></i></button>
+          <button type="button" data-rating="4" aria-label="4 stars"><i class="bi bi-star"></i></button>
+          <button type="button" data-rating="5" aria-label="5 stars"><i class="bi bi-star"></i></button>
+        </div>
+        <textarea id="review-comment" rows="3" placeholder="Share your thoughts on this dish..." aria-label="Review comment" style="width:100%;margin-top:12px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-md);resize:vertical;font-family:inherit;font-size:0.9rem;color:var(--text-primary);background:var(--card-bg);"></textarea>
+        <button class="btn-primary" id="submit-review-btn" style="margin-top:12px;justify-content:center;">
+          <i class="bi bi-send-fill"></i> Submit Review
+        </button>
+      </div>
+
+      <div id="product-reviews" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;"></div>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">Fresh<span>Bite</span></div><p>Premium food delivery.</p><div class="footer-social"><a href="#" class="social-btn"><i class="bi bi-facebook"></i></a><a href="#" class="social-btn"><i class="bi bi-instagram"></i></a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="restaurants.html">Restaurants</a></li></ul></div>
+      <div class="footer-col"><h4>Account</h4><ul><li><a href="login.html">Sign In</a></li><li><a href="profile.html">My Orders</a></li></ul></div>
+<div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Help</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 FreshBite.</span></div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<div class="modal" id="conflict-modal" role="dialog" aria-modal="true">
+  <div class="modal-content">
+    <button class="modal-close" onclick="UI.closeModal('conflict-modal')"><i class="bi bi-x-lg"></i></button>
+    <div style="text-align:center;padding:8px;">
+      <div style="font-size:3rem;margin-bottom:16px;">🛒</div>
+      <h3>Items from another restaurant</h3>
+      <p style="margin:12px 0;">Your cart has items from <strong id="conflict-restaurant-name"></strong>.</p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;">
+        <button class="btn-secondary" onclick="UI.closeModal('conflict-modal')">Keep Current</button>
+        <button class="btn-primary" id="conflict-clear-btn">Start New Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/restaurant.js"></script>
+<script src="js/products.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Sync breadcrumb product name
+  document.addEventListener('DOMContentLoaded', () => {
+    const crumb = document.getElementById('product-name-crumb');
+    const id = parseInt(Utils.getParam('id'));
+    const food = FOODS.find(f => f.id === id);
+    if (food && crumb) crumb.textContent = food.name;
+  });
+</script>
+</body>
+</html>

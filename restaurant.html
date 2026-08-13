@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View restaurant menu, reviews and order online on FreshBite.">
+  <title>Restaurant — FreshBite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div id="page-loader" class="active">
+  <div class="loader-inner"><div class="loader-logo"><span class="loader-brand">Fresh<span>Bite</span></span></div><div class="loader-dots"><span></span><span></span><span></span></div></div>
+</div>
+<nav id="navbar" role="navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo"><span class="logo-text">Fresh<span>Bite</span></span></a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a><a href="restaurants.html" class="active">Restaurants</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="dark-mode-btn btn-icon" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <a href="cart.html" class="btn-icon cart-icon-wrap" aria-label="Cart">
+        <i class="bi bi-bag-fill" style="font-size:1.3rem;color:var(--text-primary)"></i>
+        <span class="cart-badge">0</span>
+      </a>
+      <a href="login.html" class="btn-secondary btn-sm nav-guest">Sign In</a>
+      <div class="nav-auth" style="display:none;align-items:center;gap:8px;">
+        <a href="profile.html" class="btn-icon"><i class="bi bi-person-circle" style="font-size:1.4rem;color:var(--text-primary)"></i></a>
+        <span class="nav-user-name" style="font-size:0.88rem;font-weight:600;color:var(--text-primary)"></span>
+      </div>
+      <button id="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html"><i class="bi bi-house"></i> Home</a>
+  <a href="restaurants.html"><i class="bi bi-shop"></i> Restaurants</a>
+  <a href="cart.html"><i class="bi bi-bag"></i> Cart</a>
+  <a href="profile.html"><i class="bi bi-person"></i> Profile</a>
+  <a href="login.html" class="nav-guest"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+</div>
+
+<main style="padding-top:var(--navbar-h);">
+  <!-- Cover Image -->
+  <div class="restaurant-cover-wrap">
+    <img id="restaurant-cover" src="" alt="Restaurant cover" loading="eager">
+  </div>
+
+  <!-- Restaurant Info Card -->
+  <div class="container">
+<div class="restaurant-info-card">
+      <div class="restaurant-info-top">
+        <img id="restaurant-logo" class="restaurant-detail-logo" src="" alt="" loading="lazy">
+        <div class="restaurant-info-body">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <h1 id="restaurant-name" style="font-size:clamp(1.4rem,3vw,2rem);"></h1>
+            <button id="detail-fav-btn" class="detail-fav-btn" aria-label="Save restaurant">
+              <i class="bi bi-heart"></i> Save
+            </button>
+          </div>
+          <p id="restaurant-cuisine" style="color:var(--text-muted);font-size:0.9rem;margin-bottom:4px;"></p>
+          <p id="restaurant-address" style="color:var(--text-muted);font-size:0.83rem;display:flex;align-items:center;gap:5px;"><i class="bi bi-geo-alt"></i> </p>
+          <div class="restaurant-info-meta">
+            <div id="restaurant-rating"></div>
+            <span id="restaurant-status" class="status-badge open"></span>
+            <span style="display:flex;align-items:center;gap:5px;font-size:0.85rem;"><i class="bi bi-clock" style="color:var(--primary);"></i> <strong id="restaurant-delivery-time"></strong></span>
+            <span style="display:flex;align-items:center;gap:5px;font-size:0.85rem;"><i class="bi bi-truck" style="color:var(--primary);"></i> <span id="restaurant-fee"></span></span>
+            <span style="font-size:0.83rem;color:var(--text-muted);" id="restaurant-min-order"></span>
+          </div>
+          <div id="restaurant-offer" class="restaurant-offer-bar" style="display:none;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Category Nav + Menu Search -->
+  <div class="sticky-menu-nav" role="navigation" aria-label="Menu categories">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+      <div id="sticky-menu-nav" role="tablist"></div>
+      <div class="menu-search-wrap" style="min-width:220px;margin:8px 0;">
+        <i class="bi bi-search search-icon"></i>
+        <input type="search" id="menu-search" placeholder="Search menu..." aria-label="Search menu items">
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <section class="section" style="padding-top:28px;">
+    <div class="container">
+      <div class="detail-layout" style="display:grid;grid-template-columns:1fr 340px;gap:32px;align-items:start;">
+        <div>
+          <div id="menu-container" role="main" aria-label="Restaurant menu"></div>
+        </div>
+        <!-- Floating Order Summary -->
+        <div style="position:sticky;top:calc(var(--navbar-h) + 60px);">
+          <div class="price-summary-card">
+            <div class="summary-header" style="display:flex;align-items:center;gap:8px;">
+              <i class="bi bi-bag-fill" style="color:var(--primary)"></i> Your Order
+            </div>
+            <div id="mini-cart-summary" style="padding:16px 20px;">
+              <div id="mini-cart-empty" style="text-align:center;padding:24px 0;color:var(--text-muted);">
+                <i class="bi bi-bag" style="font-size:2.5rem;display:block;margin-bottom:8px;opacity:0.3;"></i>
+                <p style="font-size:0.85rem;">Your cart is empty</p>
+                <p style="font-size:0.78rem;">Add items from the menu</p>
+              </div>
+              <div id="mini-cart-items" style="display:none;"></div>
+            </div>
+            <div style="padding:0 20px 20px;">
+              <a href="cart.html" class="btn-checkout" id="go-to-cart-btn" style="display:none;">
+                <span>View Cart</span> <span id="mini-cart-total"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section" style="background:var(--light-gray);padding-top:40px;" aria-labelledby="reviews-title">
+    <div class="container">
+      <h2 class="section-title" id="reviews-title" style="margin-bottom:24px;">Customer Reviews</h2>
+      <div id="reviews-container" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;"></div>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">Fresh<span>Bite</span></div><p>Premium food delivery from the city's best restaurants.</p><div class="footer-social"><a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="restaurants.html">Restaurants</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="footer-col"><h4>Account</h4><ul><li><a href="login.html">Sign In</a></li><li><a href="profile.html">My Orders</a></li></ul></div>
+<div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Help Center</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 FreshBite. All rights reserved.</span></div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<!-- Conflict Modal -->
+<div class="modal" id="conflict-modal" role="dialog" aria-modal="true">
+  <div class="modal-content">
+    <button class="modal-close" onclick="UI.closeModal('conflict-modal')"><i class="bi bi-x-lg"></i></button>
+    <div style="text-align:center;padding:8px;">
+      <div style="font-size:3rem;margin-bottom:16px;">🛒</div>
+      <h3>Items from another restaurant</h3>
+      <p style="margin:12px 0 8px;">Your cart has items from <strong id="conflict-restaurant-name"></strong>.</p>
+      <p style="font-size:0.88rem;color:var(--text-muted);">Adding <strong id="conflict-new-item"></strong> will clear your current cart.</p>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button class="btn-secondary" onclick="UI.closeModal('conflict-modal')">Keep Current</button>
+        <button class="btn-primary" id="conflict-clear-btn">Start New Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/restaurant.js"></script>
+<script src="js/products.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/app.js"></script>
+<script>
+// Mini cart updater for restaurant detail page
+function updateMiniCart() {
+  const items = Cart.getItems();
+  const emptyEl = document.getElementById('mini-cart-empty');
+  const itemsEl = document.getElementById('mini-cart-items');
+  const goBtn = document.getElementById('go-to-cart-btn');
+  const totalEl = document.getElementById('mini-cart-total');
+  if (!emptyEl) return;
+  if (!items.length) {
+    emptyEl.style.display = ''; itemsEl.style.display = 'none';
+    if(goBtn) goBtn.style.display = 'none';
+  } else {
+    emptyEl.style.display = 'none'; itemsEl.style.display = '';
+    if(goBtn) { goBtn.style.display = ''; }
+    if(totalEl) totalEl.textContent = Utils.formatPrice(Cart.getSubtotal());
+    itemsEl.innerHTML = items.map(i => `
+      <div style="display:flex;justify-content:space-between;font-size:0.83rem;margin-bottom:8px;align-items:center;">
+        <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${i.name}</span>
+        <span style="display:flex;align-items:center;gap:6px;margin-left:8px;">
+          <button onclick="Cart.updateQuantity(${i.foodId},${i.quantity-1});updateMiniCart();" style="width:22px;height:22px;border-radius:50%;background:var(--light-gray);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:0.9rem;">−</button>
+          <strong>${i.quantity}</strong>
+          <button onclick="Cart.updateQuantity(${i.foodId},${i.quantity+1});updateMiniCart();" style="width:22px;height:22px;border-radius:50%;background:var(--light-gray);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:0.9rem;">+</button>
+        </span>
+        <span style="font-weight:700;min-width:60px;text-align:right;">${Utils.formatPrice(i.price*i.quantity)}</span>
+      </div>`).join('');
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  updateMiniCart();
+  // Refresh mini cart on every add
+  const origSync = Cart.syncBadge.bind(Cart);
+  Cart.syncBadge = function() { origSync(); updateMiniCart(); };
+});
+</script>
+</body>
+</html>

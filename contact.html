@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with FreshBite. Customer support, business enquiries, feedback.">
+  <title>Contact Us — FreshBite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div id="page-loader" class="active">
+  <div class="loader-inner"><div class="loader-logo"><span class="loader-brand">Fresh<span>Bite</span></span></div><div class="loader-dots"><span></span><span></span><span></span></div></div>
+</div>
+<nav id="navbar" role="navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo"><span class="logo-text">Fresh<span>Bite</span></span></a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a><a href="restaurants.html">Restaurants</a><a href="about.html">About</a><a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="dark-mode-btn btn-icon" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <a href="cart.html" class="btn-icon cart-icon-wrap" aria-label="Cart">
+        <i class="bi bi-bag-fill" style="font-size:1.3rem;color:var(--text-primary)"></i>
+        <span class="cart-badge">0</span>
+      </a>
+      <a href="login.html" class="btn-secondary btn-sm nav-guest">Sign In</a>
+      <div class="nav-auth" style="display:none;align-items:center;gap:8px;">
+        <a href="profile.html" class="btn-icon"><i class="bi bi-person-circle" style="font-size:1.4rem;color:var(--text-primary)"></i></a>
+        <span class="nav-user-name" style="font-size:0.88rem;font-weight:600;color:var(--text-primary)"></span>
+      </div>
+      <button id="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html"><i class="bi bi-house"></i> Home</a>
+  <a href="restaurants.html"><i class="bi bi-shop"></i> Restaurants</a>
+  <a href="about.html"><i class="bi bi-info-circle"></i> About</a>
+  <a href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
+  <a href="cart.html"><i class="bi bi-bag"></i> Cart</a>
+  <a href="login.html" class="nav-guest"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+</div>
+
+<main style="padding-top:var(--navbar-h);">
+  <!-- Hero -->
+  <div style="background:var(--gradient-primary);padding:80px 0 60px;text-align:center;color:#fff;" aria-labelledby="contact-hero-heading">
+    <div class="container">
+      <span style="background:rgba(255,255,255,0.2);color:#fff;font-size:0.85rem;font-weight:600;padding:6px 18px;border-radius:var(--radius-full);display:inline-block;margin-bottom:16px;">📞 Get in Touch</span>
+      <h1 id="contact-hero-heading" style="color:#fff;margin-bottom:12px;">We'd Love to Hear From You</h1>
+      <p style="color:rgba(255,255,255,0.8);max-width:500px;margin:0 auto;font-size:1rem;">Questions, feedback, partnerships — our team is here 24/7 to help you</p>
+    </div>
+  </div>
+
+  <!-- Quick Contact Cards -->
+  <section class="section-sm" style="background:var(--card-bg);border-bottom:1px solid var(--border);">
+    <div class="container">
+      <div class="grid-3" style="gap:20px;">
+        <div style="display:flex;align-items:center;gap:16px;background:var(--light-gray);border-radius:var(--radius-lg);padding:20px;border:1px solid var(--border);">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;"><i class="bi bi-telephone-fill"></i></div>
+          <div><strong style="display:block;font-size:0.9rem;">Call Us</strong><a href="tel:+918001234567" style="color:var(--primary);font-weight:600;font-size:0.88rem;">+91 800 123 4567</a><small style="display:block;color:var(--text-muted);font-size:0.75rem;">Mon–Sun, 8AM–11PM</small></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;background:var(--light-gray);border-radius:var(--radius-lg);padding:20px;border:1px solid var(--border);">
+          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#6C5CE7,#a29bfe);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;"><i class="bi bi-envelope-fill"></i></div>
+          <div><strong style="display:block;font-size:0.9rem;">Email Us</strong><a href="mailto:hello@freshbite.in" style="color:var(--primary);font-weight:600;font-size:0.88rem;">hello@freshbite.in</a><small style="display:block;color:var(--text-muted);font-size:0.75rem;">Reply within 24 hours</small></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;background:var(--light-gray);border-radius:var(--radius-lg);padding:20px;border:1px solid var(--border);">
+          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#00b894,#00cec9);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;flex-shrink:0;"><i class="bi bi-chat-dots-fill"></i></div>
+          <div><strong style="display:block;font-size:0.9rem;">Live Chat</strong><span style="color:var(--success);font-weight:600;font-size:0.88rem;">● Online Now</span><small style="display:block;color:var(--text-muted);font-size:0.75rem;">Avg response: 2 min</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="section" aria-labelledby="contact-main-heading">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Info + Map -->
+        <div>
+          <div class="contact-info-card animate-on-scroll">
+            <h2 id="contact-main-heading" style="margin-bottom:24px;">Contact Information</h2>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <strong>Head Office</strong>
+                <p>FreshBite Technologies Pvt. Ltd.<br>Level 12, WeWork BKC, Bandra Kurla Complex<br>Mumbai, Maharashtra — 400051</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <strong>Customer Support</strong>
+                <p>+91 800 123 4567 (Toll Free)<br>+91 22 6789 1234 (Office)</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <strong>Email</strong>
+                <p>hello@freshbite.in (General)<br>partners@freshbite.in (Restaurants)<br>press@freshbite.in (Media)</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <strong>Working Hours</strong>
+                <p>Monday – Friday: 9:00 AM – 8:00 PM<br>Saturday – Sunday: 10:00 AM – 6:00 PM</p>
+              </div>
+            </div>
+            <div class="map-placeholder" aria-label="Office location map">
+              <i class="bi bi-map" style="font-size:2rem;opacity:0.3;"></i>
+              <span>FreshBite HQ — BKC, Mumbai</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div>
+          <div class="contact-form-card animate-on-scroll">
+            <h3>Send Us a Message</h3>
+            <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:20px;">Fill out the form and we'll get back to you within 24 hours.</p>
+            <form id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name" class="form-label">Your Name <span style="color:var(--danger)">*</span></label>
+                  <input type="text" id="contact-name" class="form-control" placeholder="Rahul Sharma" required aria-required="true">
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" class="form-label">Email Address <span style="color:var(--danger)">*</span></label>
+                  <input type="email" id="contact-email" class="form-control" placeholder="you@example.com" required aria-required="true">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-phone" class="form-label">Phone Number</label>
+                <input type="tel" id="contact-phone" class="form-control" placeholder="+91 98765 43210">
+              </div>
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject <span style="color:var(--danger)">*</span></label>
+                <select id="contact-subject" class="form-control" required aria-required="true">
+                  <option value="">Select a topic</option>
+                  <option value="order">Order Issue</option>
+                  <option value="payment">Payment Problem</option>
+                  <option value="restaurant">Restaurant Feedback</option>
+                  <option value="delivery">Delivery Concern</option>
+                  <option value="partnership">Restaurant Partnership</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Message <span style="color:var(--danger)">*</span></label>
+                <textarea id="contact-message" class="form-control" rows="5" placeholder="Tell us how we can help..." required aria-required="true"></textarea>
+              </div>
+              <div style="margin-bottom:20px;">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.82rem;color:var(--text-secondary);">
+                  <input type="checkbox" style="width:auto;"> Subscribe to newsletter for deals & updates
+                </label>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+                <i class="bi bi-send-fill"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" style="background:var(--light-gray);" id="faq" aria-labelledby="faq-heading">
+    <div class="container container-sm">
+      <div class="text-center" style="margin-bottom:40px;">
+        <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Quick answers to common questions</p>
+      </div>
+      <div id="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">How long does delivery take? <i class="bi bi-chevron-down"></i></button>
+          <div class="faq-answer"><p>Most orders are delivered within 25–45 minutes depending on your location and the restaurant's preparation time. You can see estimated time on the restaurant page before ordering.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What payment methods are accepted? <i class="bi bi-chevron-down"></i></button>
+          <div class="faq-answer"><p>We accept Cash on Delivery, all UPI apps (GPay, PhonePe, Paytm, BHIM), Credit/Debit cards (Visa, Mastercard, RuPay), and the FreshBite Wallet.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I cancel or modify my order? <i class="bi bi-chevron-down"></i></button>
+          <div class="faq-answer"><p>Orders can be cancelled within 2 minutes of placing. Once the restaurant confirms, cancellation is not possible. For modifications, contact support immediately after placing the order.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How do I apply a promo code? <i class="bi bi-chevron-down"></i></button>
+          <div class="faq-answer"><p>On the cart page, enter your promo code in the "Apply Promo Code" section and click Apply. The discount will be applied to your order total instantly.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How do I track my order? <i class="bi bi-chevron-down"></i></button>
+          <div class="faq-answer"><p>After placing an order, go to "My Orders" in your profile to see the real-time status of your delivery. You'll also receive updates via the notification system.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How do I become a restaurant partner? <i class="bi bi-chevron-down"></i></button>
+          <div class="faq-answer"><p>We'd love to have you! Email us at partners@freshbite.in or fill out the contact form above selecting "Restaurant Partnership". Our team will reach out within 2 business days.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Is my payment information secure? <i class="bi bi-chevron-down"></i></button>
+          <div class="faq-answer"><p>Absolutely. All payments are processed through encrypted, PCI-DSS compliant gateways. We never store your card details on our servers.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">Fresh<span>Bite</span></div><p>Premium food delivery from the city's best restaurants.</p><div class="footer-social"><a href="#" class="social-btn"><i class="bi bi-facebook"></i></a><a href="#" class="social-btn"><i class="bi bi-instagram"></i></a><a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="restaurants.html">Restaurants</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Account</h4><ul><li><a href="login.html">Sign In</a></li><li><a href="register.html">Register</a></li><li><a href="profile.html">My Orders</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html#faq">FAQ</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 FreshBite. All rights reserved.</span></div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/restaurant.js"></script>
+<script src="js/products.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

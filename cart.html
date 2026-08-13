@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your shopping cart on FreshBite. Review your order before checkout.">
+  <title>Cart — FreshBite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div id="page-loader" class="active">
+  <div class="loader-inner"><div class="loader-logo"><span class="loader-brand">Fresh<span>Bite</span></span></div><div class="loader-dots"><span></span><span></span><span></span></div></div>
+</div>
+<nav id="navbar" role="navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo"><span class="logo-text">Fresh<span>Bite</span></span></a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a><a href="restaurants.html">Restaurants</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="dark-mode-btn btn-icon" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <a href="cart.html" class="btn-icon cart-icon-wrap" aria-label="Cart">
+        <i class="bi bi-bag-fill" style="font-size:1.3rem;color:var(--primary)"></i>
+        <span class="cart-badge">0</span>
+      </a>
+      <a href="login.html" class="btn-secondary btn-sm nav-guest">Sign In</a>
+      <div class="nav-auth" style="display:none;align-items:center;gap:8px;">
+        <a href="profile.html" class="btn-icon"><i class="bi bi-person-circle" style="font-size:1.4rem;color:var(--text-primary)"></i></a>
+        <span class="nav-user-name" style="font-size:0.88rem;font-weight:600;"></span>
+      </div>
+      <button id="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html"><i class="bi bi-house"></i> Home</a>
+  <a href="restaurants.html"><i class="bi bi-shop"></i> Restaurants</a>
+  <a href="cart.html"><i class="bi bi-bag"></i> Cart</a>
+  <a href="profile.html"><i class="bi bi-person"></i> Profile</a>
+  <a href="login.html" class="nav-guest"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+</div>
+
+<main style="padding-top:calc(var(--navbar-h) + 20px);">
+  <div class="container" style="margin-bottom:64px;">
+    <!-- Page header -->
+    <div style="margin-bottom:28px;">
+      <h1 style="font-size:1.8rem;margin-bottom:4px;"><i class="bi bi-bag-fill" style="color:var(--primary);font-size:1.5rem;"></i> Shopping Cart</h1>
+      <p style="color:var(--text-muted);font-size:0.9rem;">Review your items before checkout</p>
+    </div>
+
+    <!-- Empty State -->
+    <div id="cart-empty" style="display:none;">
+      <div class="empty-state" style="padding:80px 20px;">
+        <div class="empty-icon">🛒</div>
+        <h3>Your cart is empty</h3>
+        <p>Looks like you haven't added anything yet. Explore our restaurants!</p>
+        <a href="restaurants.html" class="btn-primary" style="margin-top:8px;">Browse Restaurants <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Cart Content -->
+    <div id="cart-content">
+      <div class="cart-page-grid">
+        <!-- Items -->
+        <div>
+          <div class="cart-items-section">
+            <div class="cart-section-header">
+              <h3 id="cart-restaurant-name" style="color:var(--text-primary);"></h3>
+              <button id="clear-cart-btn" class="btn-clear-cart" aria-label="Clear cart">
+                <i class="bi bi-trash3"></i> Clear Cart
+              </button>
+            </div>
+            <div id="cart-items-container" role="list" aria-label="Cart items"></div>
+          </div>
+
+          <!-- Continue Shopping -->
+          <div style="margin-top:16px;">
+            <button id="continue-shopping-btn" class="btn-outline" style="width:100%;justify-content:center;">
+              <i class="bi bi-arrow-left"></i> Continue Shopping
+            </button>
+          </div>
+
+<!-- Delivery info strip -->
+          <div style="margin-top:16px;background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:var(--radius-md);padding:14px 18px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <i class="bi bi-truck" style="color:var(--success);font-size:1.2rem;"></i>
+              <span id="delivery-strip-msg" style="font-size:0.85rem;color:var(--success);font-weight:600;">Add ₹<span id="delivery-threshold-msg"></span> more for FREE delivery! 🎉</span>
+            </div>
+            <div class="free-delivery-track" style="margin-top:12px;">
+              <div class="free-delivery-fill" id="free-delivery-fill" style="width:0%;"></div>
+              <div class="free-delivery-marker" id="free-delivery-marker" style="left:100%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Summary -->
+        <div>
+          <div class="price-summary-card">
+            <div class="summary-header"><i class="bi bi-receipt" style="color:var(--primary)"></i> Order Summary</div>
+
+            <!-- Coupon -->
+            <div class="coupon-section">
+              <h4 style="font-size:0.88rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;"><i class="bi bi-tag-fill" style="color:var(--primary)"></i> Apply Promo Code</h4>
+              <div class="coupon-input-group">
+                <input type="text" id="coupon-input" placeholder="Enter code" aria-label="Coupon code" autocomplete="off" style="text-transform:uppercase;letter-spacing:0.05em;">
+                <button id="apply-coupon-btn" class="btn-apply-coupon">Apply</button>
+              </div>
+              <div id="coupon-message" class="coupon-message"></div>
+              <div id="applied-coupon" style="display:none;margin-top:8px;background:rgba(46,204,113,0.08);border:1px dashed var(--success);border-radius:var(--radius-sm);padding:8px 12px;align-items:center;justify-content:space-between;font-size:0.82rem;">
+                <span><i class="bi bi-check-circle-fill" style="color:var(--success);margin-right:5px;"></i> Code: <strong class="code-text"></strong></span>
+                <button id="remove-coupon-btn" style="color:var(--danger);font-size:0.78rem;">Remove</button>
+              </div>
+<div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;">
+                <button class="filter-chip" style="font-size:0.72rem;padding:4px 10px;" onclick="applyCouponPreset('FRESH50', this)">FRESH50</button>
+                <button class="filter-chip" style="font-size:0.72rem;padding:4px 10px;" onclick="applyCouponPreset('SAVE20', this)">SAVE20</button>
+                <button class="filter-chip" style="font-size:0.72rem;padding:4px 10px;" onclick="applyCouponPreset('FREEDEL', this)">FREEDEL</button>
+              </div>
+            </div>
+
+            <!-- Price rows -->
+            <div class="price-breakdown">
+              <div class="price-row"><span>Subtotal</span><span id="summary-subtotal">₹0</span></div>
+              <div class="price-row"><span>Delivery Fee</span><span id="summary-delivery">₹29</span></div>
+              <div class="price-row"><span>GST (5%)</span><span id="summary-tax">₹0</span></div>
+              <div class="price-row" id="discount-row" style="display:none;"><span style="color:var(--success);">Discount</span><span id="summary-discount" class="discount-amt"></span></div>
+            </div>
+            <div class="summary-total">
+              <span>Grand Total</span>
+              <span id="summary-total" class="total-price">₹0</span>
+            </div>
+            <div id="summary-savings" class="savings-badge" style="display:none;"></div>
+            <a href="checkout.html" class="btn-checkout" id="checkout-btn">
+              Proceed to Checkout <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="restaurants.html" class="btn-continue-shopping">or continue shopping</a>
+
+            <!-- Payment icons -->
+            <div style="padding:12px 20px 20px;display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;">
+              <span style="font-size:0.72rem;color:var(--text-muted);">Secure payments:</span>
+              <span style="font-size:1.1rem;" title="UPI">📱</span>
+              <span style="font-size:1.1rem;" title="Card">💳</span>
+              <span style="font-size:1.1rem;" title="Cash">💵</span>
+              <span style="font-size:1.1rem;" title="Wallet">👛</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">Fresh<span>Bite</span></div><p>Premium food delivery.</p><div class="footer-social"><a href="#" class="social-btn"><i class="bi bi-facebook"></i></a><a href="#" class="social-btn"><i class="bi bi-instagram"></i></a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="restaurants.html">Restaurants</a></li></ul></div>
+      <div class="footer-col"><h4>Account</h4><ul><li><a href="login.html">Sign In</a></li><li><a href="profile.html">My Orders</a></li></ul></div>
+<div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Help</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 FreshBite.</span></div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/restaurant.js"></script>
+<script src="js/products.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Delivery threshold helper
+    const thresholdEl = document.getElementById('delivery-threshold-msg');
+    const sub = Cart.getSubtotal();
+    const remaining = Cart.FREE_DELIVERY_THRESHOLD - sub;
+    const strip = thresholdEl?.closest('div');
+    if (thresholdEl) {
+      if (remaining <= 0) {
+        if (strip) strip.innerHTML = '<i class="bi bi-truck" style="color:var(--success);font-size:1.2rem;"></i><span style="font-size:0.85rem;color:var(--success);font-weight:600;">You have FREE delivery on this order! 🎉</span>';
+      } else {
+        thresholdEl.textContent = remaining;
+      }
+    }
+    // Show discount row only if discount applied
+    const discRow = document.getElementById('discount-row');
+    if (discRow) discRow.style.display = 'none';
+
+// Keep free-delivery progress bar in sync with cart changes
+    const origSync = Cart.syncBadge.bind(Cart);
+    Cart.syncBadge = function() { origSync(); if (typeof updateFreeDeliveryBar === 'function') updateFreeDeliveryBar(); };
+  });
+
+  // One-click coupon preset apply (B10)
+  function applyCouponPreset(code, btn) {
+    const input = document.getElementById('coupon-input');
+    if (input) input.value = code;
+    // Trigger the Apply button
+    document.getElementById('apply-coupon-btn')?.click();
+    // Visual feedback on the clicked chip
+    if (btn) {
+      btn.classList.add('active');
+      setTimeout(() => btn.classList.remove('active'), 1500);
+    }
+  }
+</script>
+</body>
+</html>

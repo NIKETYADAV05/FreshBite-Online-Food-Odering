@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about FreshBite — our story, mission, team and achievements.">
+  <title>About Us — FreshBite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍔</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div id="page-loader" class="active">
+  <div class="loader-inner"><div class="loader-logo"><span class="loader-brand">Fresh<span>Bite</span></span></div><div class="loader-dots"><span></span><span></span><span></span></div></div>
+</div>
+<nav id="navbar" role="navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo"><span class="logo-text">Fresh<span>Bite</span></span></a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a><a href="restaurants.html">Restaurants</a><a href="about.html" class="active">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="navbar-actions">
+      <button class="dark-mode-btn btn-icon" aria-label="Toggle dark mode"><i class="bi bi-moon-stars-fill"></i></button>
+      <a href="cart.html" class="btn-icon cart-icon-wrap" aria-label="Cart">
+        <i class="bi bi-bag-fill" style="font-size:1.3rem;color:var(--text-primary)"></i>
+        <span class="cart-badge">0</span>
+      </a>
+      <a href="login.html" class="btn-secondary btn-sm nav-guest">Sign In</a>
+      <div class="nav-auth" style="display:none;align-items:center;gap:8px;">
+        <a href="profile.html" class="btn-icon"><i class="bi bi-person-circle" style="font-size:1.4rem;color:var(--text-primary)"></i></a>
+        <span class="nav-user-name" style="font-size:0.88rem;font-weight:600;color:var(--text-primary)"></span>
+      </div>
+      <button id="mobile-menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html"><i class="bi bi-house"></i> Home</a>
+  <a href="restaurants.html"><i class="bi bi-shop"></i> Restaurants</a>
+  <a href="about.html"><i class="bi bi-info-circle"></i> About</a>
+  <a href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
+  <a href="cart.html"><i class="bi bi-bag"></i> Cart</a>
+  <a href="login.html" class="nav-guest"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+</div>
+
+<main>
+  <!-- Hero -->
+  <section class="about-hero" aria-labelledby="about-hero-heading">
+    <div class="container">
+      <span style="background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);color:#fff;font-size:0.85rem;font-weight:600;padding:6px 18px;border-radius:var(--radius-full);display:inline-block;margin-bottom:16px;border:1px solid rgba(255,255,255,0.3);">🍽️ Our Story</span>
+      <h1 id="about-hero-heading">We're on a mission to make<br>great food accessible to all</h1>
+      <p>FreshBite started in a small Mumbai kitchen with a big dream — to connect food lovers with the city's best restaurants through technology, speed, and care.</p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="about-story">
+        <div>
+          <span style="color:var(--primary);font-weight:700;font-size:0.85rem;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:8px;display:block;">The Beginning</span>
+<h2 id="story-heading">From a small kitchen to a trusted local favourite</h2>
+          <p style="margin:16px 0 14px;">In 2018, two friends — Aryan and Priya — frustrated with cold, late deliveries, decided to build something better. They started FreshBite with just 5 restaurant partners and 3 delivery partners in Mumbai.</p>
+<p style="margin-bottom:24px;">Today, FreshBite is the neighbourhood's go-to for quality food delivery, featuring a curated network of 8 hand-picked restaurants, 23 signature dishes, and a growing community of food lovers across the city.</p>
+          <div style="display:flex;gap:32px;flex-wrap:wrap;">
+            <div><strong style="font-size:1.8rem;color:var(--primary);display:block;">2018</strong><span style="font-size:0.85rem;color:var(--text-muted);">Founded</span></div>
+            <div><strong style="font-size:1.8rem;color:var(--primary);display:block;">8</strong><span style="font-size:0.85rem;color:var(--text-muted);">Restaurants</span></div>
+            <div><strong style="font-size:1.8rem;color:var(--primary);display:block;">23</strong><span style="font-size:0.85rem;color:var(--text-muted);">Signature Dishes</span></div>
+          </div>
+        </div>
+        <div class="about-story-img animate-on-scroll">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="FreshBite story" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="section" style="background:var(--light-gray);" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;">
+        <h2 id="mission-heading" class="section-title">Our Mission & Vision</h2>
+        <p class="section-subtitle">What drives us every single day</p>
+      </div>
+      <div class="grid-2" style="gap:28px;">
+        <div class="stat-card animate-on-scroll" style="text-align:left;padding:36px;">
+          <div style="width:56px;height:56px;border-radius:var(--radius-md);background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:16px;">🎯</div>
+          <h3 style="margin-bottom:12px;">Our Mission</h3>
+          <p>To democratize food delivery — making premium dining accessible to everyone, everywhere, with the speed and reliability of modern technology.</p>
+        </div>
+        <div class="stat-card animate-on-scroll" style="text-align:left;padding:36px;">
+          <div style="width:56px;height:56px;border-radius:var(--radius-md);background:linear-gradient(135deg,#6C5CE7,#a29bfe);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:16px;">🔭</div>
+          <h3 style="margin-bottom:12px;">Our Vision</h3>
+          <p>To be India's most-loved food tech platform — where every meal is a celebration, every delivery is a delight, and every partner thrives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section" style="background:var(--gradient-dark);" aria-labelledby="stats-about-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <h2 id="stats-about-heading" style="color:#fff;">FreshBite by the Numbers</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-icon">🍽️</div><div class="stat-number counter-animate" data-target="8">0</div><div class="stat-label">Featured Restaurants</div></div>
+<div class="stat-card"><div class="stat-icon">🍕</div><div class="stat-number counter-animate" data-target="23">0</div><div class="stat-label">Signature Dishes</div></div>
+        <div class="stat-card"><div class="stat-icon">😊</div><div class="stat-number counter-animate" data-target="10000">0</div><div class="stat-label">Orders Delivered</div></div>
+        <div class="stat-card"><div class="stat-icon">⏱️</div><div class="stat-number counter-animate" data-target="25">0</div><div class="stat-label">Min Avg Delivery</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chef Team -->
+  <section class="section" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:36px;">
+        <div>
+          <h2 id="team-heading" class="section-title">Meet Our Chef Team</h2>
+          <p class="section-subtitle">The culinary geniuses behind our curated restaurant network</p>
+        </div>
+      </div>
+      <div class="team-grid">
+        <div class="chef-card animate-on-scroll">
+          <div class="chef-img"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80" alt="Chef Arjun" loading="lazy"></div>
+          <div class="chef-info"><h4>Chef Arjun Mehta</h4><p>Head of Culinary Innovation</p><p style="font-size:0.75rem;color:var(--primary);margin-top:4px;">15 yrs experience</p></div>
+        </div>
+        <div class="chef-card animate-on-scroll">
+          <div class="chef-img"><img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80" alt="Chef Priya" loading="lazy"></div>
+          <div class="chef-info"><h4>Chef Priya Sharma</h4><p>Regional Cuisine Expert</p><p style="font-size:0.75rem;color:var(--primary);margin-top:4px;">12 yrs experience</p></div>
+        </div>
+        <div class="chef-card animate-on-scroll">
+          <div class="chef-img"><img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=400&q=80" alt="Chef Kenji" loading="lazy"></div>
+          <div class="chef-info"><h4>Chef Kenji Tanaka</h4><p>Japanese Cuisine Specialist</p><p style="font-size:0.75rem;color:var(--primary);margin-top:4px;">20 yrs experience</p></div>
+        </div>
+<div class="chef-card animate-on-scroll">
+          <div class="chef-img"><img src="https://images.unsplash.com/photo-1601412436009-d964bd02edbc?w=400&q=80" alt="Chef Marco" loading="lazy"></div>
+          <div class="chef-info"><h4>Chef Marco Rossi</h4><p>Italian Cuisine Master</p><p style="font-size:0.75rem;color:var(--primary);margin-top:4px;">18 yrs experience</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section class="section" style="background:var(--light-gray);" aria-labelledby="achievements-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <h2 id="achievements-heading" class="section-title">Awards & Recognition</h2>
+        <p class="section-subtitle">Our work recognized by industry leaders</p>
+      </div>
+      <div class="achievement-grid">
+        <div class="achievement-card animate-on-scroll"><div class="achievement-icon">🏆</div><h4>Best Food Tech Startup 2024</h4><p style="font-size:0.82rem;">Tech India Awards</p></div>
+        <div class="achievement-card animate-on-scroll"><div class="achievement-icon">⭐</div><h4>Customer Experience Award</h4><p style="font-size:0.82rem;">CX India 2024</p></div>
+        <div class="achievement-card animate-on-scroll"><div class="achievement-icon">🚀</div><h4>Fastest Growing Startup</h4><p style="font-size:0.82rem;">Forbes India 2023</p></div>
+        <div class="achievement-card animate-on-scroll"><div class="achievement-icon">💚</div><h4>Best Sustainability Initiative</h4><p style="font-size:0.82rem;">Green Business Awards 2024</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:32px;">
+        <h2 id="gallery-heading" class="section-title">Our Food Gallery</h2>
+      </div>
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt="Gallery 1" loading="lazy" class="animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80" alt="Gallery 2" loading="lazy" class="animate-on-scroll">
+<img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&q=80" alt="Gallery 3" loading="lazy" class="animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&q=80" alt="Gallery 4" loading="lazy" class="animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&q=80" alt="Gallery 5" loading="lazy" class="animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80" alt="Gallery 6" loading="lazy" class="animate-on-scroll">
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="newsletter-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <h2 id="cta-heading">Ready to Order?</h2>
+          <p>Browse hundreds of restaurants and get your favourite food delivered.</p>
+        </div>
+        <a href="restaurants.html" class="btn-primary btn-lg" style="background:rgba(255,255,255,0.95);color:var(--primary);font-weight:700;">
+          Order Now <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">Fresh<span>Bite</span></div><p>Premium food delivery from the city's best restaurants.</p><div class="footer-social"><a href="#" class="social-btn"><i class="bi bi-facebook"></i></a><a href="#" class="social-btn"><i class="bi bi-instagram"></i></a><a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="restaurants.html">Restaurants</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Account</h4><ul><li><a href="login.html">Sign In</a></li><li><a href="register.html">Register</a></li><li><a href="profile.html">My Orders</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Help Center</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 FreshBite. All rights reserved.</span></div>
+  </div>
+</footer>
+<button id="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/restaurant.js"></script>
+<script src="js/products.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
