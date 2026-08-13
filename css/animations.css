@@ -1,0 +1,195 @@
+/* ============================================================
+   FreshBite — animations.css
+   All keyframe animations, transitions, scroll reveal
+   ============================================================ */
+
+/* ── SCROLL REVEAL ── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1),
+              transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
+
+/* Stagger delay for sibling cards */
+.animate-on-scroll:nth-child(1) { transition-delay: 0.05s; }
+.animate-on-scroll:nth-child(2) { transition-delay: 0.10s; }
+.animate-on-scroll:nth-child(3) { transition-delay: 0.15s; }
+.animate-on-scroll:nth-child(4) { transition-delay: 0.20s; }
+.animate-on-scroll:nth-child(5) { transition-delay: 0.25s; }
+.animate-on-scroll:nth-child(6) { transition-delay: 0.30s; }
+.animate-on-scroll:nth-child(7) { transition-delay: 0.35s; }
+.animate-on-scroll:nth-child(8) { transition-delay: 0.40s; }
+
+/* ── FADE VARIANTS ── */
+.fade-in { animation: fadeIn 0.5s ease forwards; }
+.fade-up { animation: fadeUp 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
+.fade-down { animation: fadeDown 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
+.fade-left { animation: fadeLeft 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
+.fade-right { animation: fadeRight 0.5s cubic-bezier(0.4,0,0.2,1) forwards; }
+.zoom-in { animation: zoomIn 0.4s cubic-bezier(0.4,0,0.2,1) forwards; }
+.slide-up { animation: slideUp 0.45s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* ── PULSE / BEAT ── */
+.pulse { animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+/* ── FLOAT ── */
+.float { animation: float 3s ease-in-out infinite; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+/* ── SPIN ── */
+.spin { animation: spin 1.2s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── WIGGLE ── */
+.wiggle { animation: wiggle 0.5s ease; }
+@keyframes wiggle {
+  0%,100% { transform: rotate(0); }
+  25%     { transform: rotate(-8deg); }
+  75%     { transform: rotate(8deg); }
+}
+
+/* ── BOUNCE ── */
+.bounce { animation: bounce 0.6s cubic-bezier(0.36,0.07,0.19,0.97); }
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  40%     { transform: translateY(-16px); }
+  70%     { transform: translateY(-8px); }
+}
+
+/* ── SHAKE ── */
+.shake { animation: shake 0.5s cubic-bezier(0.36,0.07,0.19,0.97); }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%,60% { transform: translateX(-6px); }
+  40%,80% { transform: translateX(6px); }
+}
+
+/* ── PAGE TRANSITION ── */
+.page-enter { animation: pageEnter 0.4s cubic-bezier(0.4,0,0.2,1) forwards; }
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── ENHANCED EMPTY STATE (C2) ── */
+.empty-state {
+  animation: emptyPop 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+}
+@keyframes emptyPop {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.empty-state .empty-icon {
+  animation: emptyFloat 2.5s ease-in-out infinite;
+}
+@keyframes emptyFloat {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-10px); }
+}
+
+/* ── HOVER LIFT (utility class) ── */
+.hover-lift { transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s; }
+.hover-lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+/* ── FLASH SALE TIMER ── */
+.timer-unit { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
+.timer-num {
+  font-size: 2rem; font-weight: 800; font-variant-numeric: tabular-nums;
+  background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.timer-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 600; }
+.timer-sep { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; padding: 0 4px; animation: timerBlink 1s step-end infinite; }
+@keyframes timerBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+/* ── ORDER SUCCESS ── */
+.success-checkmark {
+  width: 80px; height: 80px; margin: 0 auto 24px;
+  border-radius: 50%; background: rgba(46,204,113,0.12);
+  display: flex; align-items: center; justify-content: center;
+  animation: successPop 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.success-checkmark i { font-size: 2.5rem; color: var(--success); }
+@keyframes successPop {
+  0%  { transform: scale(0); opacity: 0; }
+  80% { transform: scale(1.15); }
+  100%{ transform: scale(1); opacity: 1; }
+}
+
+/* ── PLACE ORDER PULSE ── */
+.place-order-pulse { animation: placePulse 1.8s ease-in-out infinite; }
+@keyframes placePulse {
+  0%,100% { box-shadow: var(--shadow-primary); }
+  50%     { box-shadow: 0 8px 40px rgba(255,107,53,0.55); }
+}
+
+/* ── CART ITEM ENTER/EXIT ── */
+.cart-item { animation: cartItemIn 0.3s ease; }
+@keyframes cartItemIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── BADGE BOUNCE ── */
+.badge-pulse { animation: badgePulse 2s ease-in-out infinite; }
+@keyframes badgePulse {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.12); }
+}
+
+/* ── IMAGE LOADED ── */
+img.loaded { animation: imgReveal 0.4s ease; }
+@keyframes imgReveal { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── STEP PROGRESS ── */
+.step-indicator.done .step-circle { background: var(--success); }
+.step-indicator.active .step-circle { background: var(--gradient-primary); animation: stepGlow 2s ease-in-out infinite; }
+@keyframes stepGlow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(255,107,53,0.4); }
+  50%     { box-shadow: 0 0 0 8px rgba(255,107,53,0); }
+}
+
+/* ── NOTIFICATION DOT ── */
+.notif-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--danger); animation: notifPulse 2s infinite; }
+@keyframes notifPulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%     { transform: scale(1.4); opacity: 0.7; }
+}
