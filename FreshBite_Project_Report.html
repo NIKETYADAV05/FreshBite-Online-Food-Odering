@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FreshBite — Project Report</title>
+  <style>
+    @page { size: A4; margin: 24mm; }
+    body { font-family: Arial, sans-serif; color: #111; line-height:1.45; margin:0; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { font-size: 22px; margin-bottom:4px; }
+    h2 { font-size: 16px; margin-top:18px; margin-bottom:6px; }
+    p { margin:6px 0; font-size: 12.5px; }
+    ul { margin:6px 0 6px 20px; }
+    .small { font-size: 11.5px; color:#333; }
+    .footer { margin-top:18px; font-size:11px; color:#555; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>FreshBite — Online Food Ordering Website</h1>
+    <p class="small">Project report — front-end prototype demonstrating restaurant browsing, cart management, and checkout flows.</p>
+
+    <h2>Objective</h2>
+    <p>Build a responsive, user-friendly front-end prototype that demonstrates the end-to-end ordering experience: browse restaurants and menus, view products, add items to a cart, and complete a checkout flow. The site is intended as a working demo and a foundation for future backend integration.</p>
+
+    <h2>Technologies</h2>
+    <ul>
+      <li>HTML5 &amp; CSS3 (modular styles: `style.css`, `components.css`, `responsive.css`, `animations.css`)</li>
+      <li>Vanilla JavaScript for client logic (files such as `app.js`, `auth.js`, `products.js`, `restaurant.js`, `cart.js`, `checkout.js`, `storage.js`, `ui.js`, `utils.js`)</li>
+      <li>Static assets organized under `assets/` (images, icons)</li>
+      <li>Static hosting friendly — ready for a CDN or simple web server</li>
+    </ul>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li><strong>Restaurant &amp; Menu Listings:</strong> Browse restaurants and navigate to menu items with images and short descriptions.</li>
+      <li><strong>Product Detail Pages:</strong> Item details, quantity selection, and add-to-cart actions.</li>
+      <li><strong>Persistent Cart:</strong> Add/remove/update items with persistence via `localStorage`.</li>
+      <li><strong>Checkout Flow:</strong> Order summary and confirmation mock-up to illustrate the purchasing sequence.</li>
+      <li><strong>Demo Authentication:</strong> Login and registration UI to simulate user sessions (client-side only).</li>
+      <li><strong>Responsive Design:</strong> Mobile-first layout and component breakpoints for multiple viewports.</li>
+    </ul>
+
+    <h2>System Design &amp; Organization</h2>
+    <p>The codebase follows single-responsibility practices: each JavaScript module manages a focused domain (cart, auth, products). `data.js` contains demo data while `storage.js` abstracts `localStorage` operations to simplify future backend replacement. CSS is layered for components, utilities, and responsive rules.</p>
+
+    <h2>Learning Outcomes</h2>
+    <ul>
+      <li>Modular front-end architecture and disciplined file organization.</li>
+      <li>Client-side state management and persistence techniques.</li>
+      <li>Improved responsive UI skills and practical DOM/event handling.</li>
+      <li>Experience prototyping UX flows without a backend while keeping code ready for integration.</li>
+    </ul>
+
+    <h2>Challenges &amp; Solutions</h2>
+    <p><strong>Cart synchronization:</strong> Kept consistent across pages by hydrating state on page load and centralizing reads/writes in `storage.js`.</p>
+    <p><strong>Responsive edge cases:</strong> Addressed via component decomposition, targeted breakpoints, and image handling rules.</p>
+    <p><strong>Auth without a server:</strong> Implemented client-side stubs and documented the demo-only nature to avoid security confusion.</p>
+
+    <h2>Future Improvements</h2>
+    <ul>
+      <li>Backend API for secure auth, order persistence, and inventory.</li>
+      <li>Payment gateway integration with server-side validation.</li>
+      <li>Search, filters, ratings, and improved discoverability.</li>
+      <li>Accessibility enhancements (ARIA, keyboard navigation) and automated tests with CI.</li>
+    </ul>
+
+    <div class="footer">
+      <p>Prepared for demonstration and submission.</p>
+    </div>
+  </div>
+  
+</body>
+</html>
